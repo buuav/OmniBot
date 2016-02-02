@@ -1,10 +1,3 @@
-#The recipe gives simple implementation of a Discrete Proportional-Integral-Derivative (PID) controller. PID controller gives output value for error between desired reference input and measurement feedback to minimize error value.
-#More information: http://en.wikipedia.org/wiki/PID_controller
-#
-#cnr437@gmail.com
-#
-#######	Example	#########
-#
 #p=PID(3.0,0.4,1.2)
 #p.setPoint(5.0)
 #while True:
@@ -18,7 +11,7 @@ class PID:
 	Discrete PID control
 	"""
 
-	def __init__(self, P=2.0, I=0.0, D=1.0, Derivator=0, Integrator=0, Integrator_max=500, Integrator_min=-500):
+	def __init__(self, P=2.0, I=0.0, D=0.0, Derivator=0, Integrator=0, Integrator_max=500, Integrator_min=-500):
 
 		self.Kp=P
 		self.Ki=I
@@ -44,10 +37,10 @@ class PID:
 
 		self.Integrator = self.Integrator + self.error
 
-		if self.Integrator > self.Integrator_max:
-			self.Integrator = self.Integrator_max
-		elif self.Integrator < self.Integrator_min:
-			self.Integrator = self.Integrator_min
+		#if self.Integrator > self.Integrator_max:
+		#	self.Integrator = self.Integrator_max
+		#elif self.Integrator < self.Integrator_min:
+		#	self.Integrator = self.Integrator_min
 
 		self.I_value = self.Integrator * self.Ki
 
