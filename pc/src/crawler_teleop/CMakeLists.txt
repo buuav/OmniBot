@@ -1,14 +1,13 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(tel_ctrl_joystick)
+project(crawler_teleop)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  geometry_msgs
-  rospy
-  sensor_msgs
-  std_msgs
+  joy
+  rqt_plot
+  rviz
 )
 
 ## System dependencies are found with CMake's conventions
@@ -68,7 +67,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   geometry_msgs#   sensor_msgs#   std_msgs
+#   std_msgs  # Or other packages containing msgs
 # )
 
 ################################################
@@ -102,8 +101,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES tel_ctrl_joystick
-#  CATKIN_DEPENDS geometry_msgs rospy sensor_msgs std_msgs
+#  LIBRARIES crawler_teleop
+#  CATKIN_DEPENDS joy rqt_plot rviz
 #  DEPENDS system_lib
 )
 
@@ -119,24 +118,24 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(tel_ctrl_joystick
-#   src/${PROJECT_NAME}/tel_ctrl_joystick.cpp
+# add_library(crawler_teleop
+#   src/${PROJECT_NAME}/crawler_teleop.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(tel_ctrl_joystick ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(crawler_teleop ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(tel_ctrl_joystick_node src/tel_ctrl_joystick_node.cpp)
+# add_executable(crawler_teleop_node src/crawler_teleop_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(tel_ctrl_joystick_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(crawler_teleop_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(tel_ctrl_joystick_node
+# target_link_libraries(crawler_teleop_node
 #   ${catkin_LIBRARIES}
 # )
 
@@ -155,7 +154,7 @@ include_directories(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS tel_ctrl_joystick tel_ctrl_joystick_node
+# install(TARGETS crawler_teleop crawler_teleop_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -180,7 +179,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_tel_ctrl_joystick.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_crawler_teleop.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

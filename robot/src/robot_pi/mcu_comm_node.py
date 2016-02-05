@@ -56,7 +56,7 @@ if __name__ == '__main__':
 	ser = serial.Serial('/dev/ttyAMA0',115200)	
 	rospy.init_node('robot', anonymous=True)
         pub = rospy.Publisher('current', String, queue_size=15)
-	rospy.Subscriber("command_velocity", Twist, cmd_vel_callback)
+	rospy.Subscriber("cmd_vel", Twist, cmd_vel_callback)
 
  
 	while True:
